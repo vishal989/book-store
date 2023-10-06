@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import cors from 'cors';
 
 import {PORT, mongoDBURL} from './config.js';
 import { Book } from './models/bookModel.js';
@@ -12,7 +11,7 @@ app.use('/books', booksRoute);
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type']
+    allowHeaders: ['Content-Type']
 }))
 
 app.get('/', (req, res) => {
